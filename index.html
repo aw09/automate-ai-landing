@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automate Your #1 Business Bottleneck with AI in 5 Days</title>
+  <meta name="description" content="We set up a custom AI automation for your business in 5 days. Stop wasting hours on repetitive tasks. Start Starter at $500 or Growth at $1,500/mo.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --surface2: #1a1a1a;
+      --border: #2a2a2a;
+      --text: #f0f0f0;
+      --muted: #888;
+      --accent: #4f7fff;
+      --accent-hover: #6b93ff;
+      --green: #22c55e;
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(10,10,10,0.85);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-cta {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 18px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--accent-hover); }
+
+    /* HERO */
+    .hero {
+      padding: 120px 24px 80px;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(79,127,255,0.12);
+      border: 1px solid rgba(79,127,255,0.3);
+      border-radius: 100px;
+      padding: 4px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; } 50% { opacity:0.4; }
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #4f7fff 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin: 0 auto 36px;
+    }
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
+    .hero-note { font-size: 0.8rem; color: var(--muted); }
+
+    /* PAIN POINTS */
+    .pain {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+    .section-label {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 48px;
+    }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .pain-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .pain-icon {
+      font-size: 1.75rem;
+      margin-bottom: 16px;
+    }
+    .pain-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .pain-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* HOW IT WORKS */
+    .how {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px;
+    }
+    .how-inner { max-width: 680px; margin: 0 auto; }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 48px;
+    }
+    .step {
+      display: flex;
+      gap: 20px;
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 48px;
+      width: 2px;
+      height: calc(100% - 8px);
+      background: var(--border);
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    .step-body { padding-bottom: 40px; }
+    .step-body h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    .step-body p { font-size: 0.9rem; color: var(--muted); }
+
+    /* PRICING */
+    .pricing {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .pricing-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+    }
+    .pricing-card.featured {
+      border-color: var(--accent);
+      background: linear-gradient(180deg, rgba(79,127,255,0.07) 0%, var(--surface) 100%);
+      position: relative;
+    }
+    .featured-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .plan-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .plan-price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .plan-cadence {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .plan-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+      line-height: 1.55;
+    }
+    .plan-features {
+      list-style: none;
+      margin-bottom: 32px;
+      flex: 1;
+    }
+    .plan-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .plan-features li:last-child { border-bottom: none; }
+    .check {
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .btn-plan {
+      display: block;
+      text-align: center;
+      padding: 13px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-plan:hover { transform: translateY(-1px); }
+    .btn-plan-primary { background: var(--accent); color: #fff; }
+    .btn-plan-primary:hover { background: var(--accent-hover); }
+    .btn-plan-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-plan-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* EMAIL CAPTURE */
+    .capture {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px;
+    }
+    .capture-inner {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .capture-inner h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .capture-inner p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+    .capture-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .capture-form input[type="email"] {
+      flex: 1;
+      min-width: 200px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: var(--text);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .capture-form input[type="email"]:focus { border-color: var(--accent); }
+    .capture-form input[type="email"]::placeholder { color: var(--muted); }
+    .btn-capture {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 22px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .btn-capture:hover { background: var(--accent-hover); }
+    .capture-privacy {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+    .success-msg {
+      display: none;
+      background: rgba(34,197,94,0.12);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 10px;
+      padding: 14px 20px;
+      color: var(--green);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 12px;
+    }
+
+    /* CREDIBILITY */
+    .cred {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 24px;
+      text-align: center;
+    }
+    .cred p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 16px auto 0;
+      line-height: 1.65;
+    }
+    .cred-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* FINAL CTA */
+    .final-cta {
+      background: linear-gradient(135deg, rgba(79,127,255,0.12) 0%, rgba(167,139,250,0.08) 100%);
+      border-top: 1px solid rgba(79,127,255,0.2);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .final-cta h2 {
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .final-cta p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 32px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 480px) {
+      .capture-form { flex-direction: column; }
+      .capture-form input[type="email"] { min-width: unset; width: 100%; }
+      .btn-capture { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">AutomateAI</a>
+  <a class="nav-cta" href="https://calendly.com" target="_blank" rel="noopener">Book Free Call</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge"><span class="badge-dot"></span>Now accepting clients</div>
+  <h1>Automate your #1 business bottleneck<br>with <em>AI in 5 days</em></h1>
+  <p class="hero-sub">We set up a custom AI automation for your business — fully done-for-you. You focus on growth, we handle the repetitive work.</p>
+  <div class="hero-cta-group">
+    <a class="btn-primary" href="https://calendly.com" target="_blank" rel="noopener">
+      📅 Book a free 30-min call
+    </a>
+    <span class="hero-note">No commitment · Takes 2 minutes to schedule</span>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain">
+  <p class="section-label">The problem</p>
+  <h2 class="section-title">You're leaving money on the table every day</h2>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="pain-icon">⏱️</div>
+      <h3>Hours lost to repetitive tasks</h3>
+      <p>Your team spends 2–4 hours daily on data entry, copy-pasting, and follow-ups that AI could handle instantly.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">🔥</div>
+      <h3>Slow response times killing deals</h3>
+      <p>Leads go cold while you're manually routing inquiries, qualifying prospects, or drafting the same emails again.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">📉</div>
+      <h3>You can't scale without hiring</h3>
+      <p>Every new customer adds workload. Without automation, growth means burning out your team or expensive headcount.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="how-inner">
+    <p class="section-label">How it works</p>
+    <h2 class="section-title">Up and running in 5 days</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Day 1 — Discovery call (30 min)</h3>
+          <p>We map your biggest bottleneck and confirm the automation is a fit. You leave with a clear plan.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Days 2–4 — We build it</h3>
+          <p>Our team sets up your custom AI workflow using tools you already have (or free alternatives).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Day 5 — Handover &amp; walkthrough</h3>
+          <p>We hand over the system, walk you through it live, and make sure it's working perfectly before we close.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Ongoing (Growth plan only) — We maintain &amp; improve</h3>
+          <p>Monthly check-ins, updates as your tools evolve, and new automations as your business grows.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <p class="section-label">Pricing</p>
+  <h2 class="section-title">Simple, transparent pricing</h2>
+  <div class="pricing-grid">
+    <!-- Starter -->
+    <div class="pricing-card">
+      <p class="plan-name">Starter</p>
+      <p class="plan-price">$500</p>
+      <p class="plan-cadence">one-time payment</p>
+      <p class="plan-desc">Perfect for businesses that need one well-built automation to eliminate their biggest manual bottleneck.</p>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> 1 custom AI automation</li>
+        <li><span class="check">✓</span> 5-day delivery</li>
+        <li><span class="check">✓</span> 30-min discovery call</li>
+        <li><span class="check">✓</span> Live handover walkthrough</li>
+        <li><span class="check">✓</span> 2-week support window</li>
+      </ul>
+      <a href="https://calendly.com" target="_blank" rel="noopener" class="btn-plan btn-plan-outline">Book free call →</a>
+    </div>
+    <!-- Growth -->
+    <div class="pricing-card featured">
+      <span class="featured-badge">Most popular</span>
+      <p class="plan-name">Growth</p>
+      <p class="plan-price">$1,500</p>
+      <p class="plan-cadence">per month</p>
+      <p class="plan-desc">For businesses serious about scaling. We become your ongoing automation partner — building, maintaining, and improving as you grow.</p>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Up to 3 automations/month</li>
+        <li><span class="check">✓</span> Priority 5-day delivery</li>
+        <li><span class="check">✓</span> Monthly strategy call</li>
+        <li><span class="check">✓</span> Ongoing maintenance &amp; updates</li>
+        <li><span class="check">✓</span> Slack access for quick questions</li>
+        <li><span class="check">✓</span> Cancel anytime</li>
+      </ul>
+      <a href="https://calendly.com" target="_blank" rel="noopener" class="btn-plan btn-plan-primary">Book free call →</a>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<section class="capture" id="email-capture">
+  <div class="capture-inner">
+    <h2>Not ready to book yet?</h2>
+    <p>Drop your email and we'll send you a 5-step guide on the most impactful AI automations for small businesses.</p>
+    <form class="capture-form" id="emailForm" onsubmit="handleSubmit(event)">
+      <input type="email" placeholder="your@email.com" required autocomplete="email">
+      <button type="submit" class="btn-capture">Send me the guide</button>
+    </form>
+    <p class="capture-privacy">No spam. Unsubscribe any time.</p>
+    <div class="success-msg" id="successMsg">
+      ✓ Sent! Check your inbox in the next few minutes.
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY -->
+<section class="cred">
+  <p class="section-label">Who built this</p>
+  <p class="cred-name">Built by engineers with 10+ years in automation &amp; AI</p>
+  <p>We're a small team of AI engineers who've built automations for SaaS companies, e-commerce brands, and professional services firms. We only take on work we're confident we can deliver — which is why we guarantee 5-day delivery or your money back.</p>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Ready to get your time back?</h2>
+  <p>The call is free. The automation pays for itself in week one.</p>
+  <a class="btn-primary" href="https://calendly.com" target="_blank" rel="noopener">
+    📅 Book a free 30-min call
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 AutomateAI · Built to help small businesses move faster</p>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    // Replace this with your actual email service endpoint (e.g., Mailchimp, ConvertKit, Formspree)
+    const email = e.target.querySelector('input[type="email"]').value;
+    // TODO: POST to your email list provider
+    // fetch('https://your-form-endpoint.com', { method: 'POST', body: JSON.stringify({email}) })
+    document.getElementById('emailForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
